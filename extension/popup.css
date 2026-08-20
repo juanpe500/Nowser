@@ -1,0 +1,284 @@
+/* ── Nowser Popup Styles ─────────────────────────────────────
+   Premium dark UI — GitHub Dark Dimmed palette.
+   Per-domain proxy routing with VPS profile management.
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+  --bg:        #0d1117;
+  --surface:   #161b22;
+  --border:    #30363d;
+  --text:      #e6edf3;
+  --text-muted:#8b949e;
+  --accent:    #58a6ff;
+  --green:     #3fb950;
+  --red:       #f85149;
+  --yellow:    #d29922;
+  --radius:    8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  min-width: 320px;
+}
+
+.popup { padding: 16px; }
+
+/* ── Header ──────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.logo { display: flex; align-items: center; gap: 8px; }
+
+.logo-icon {
+  font-size: 20px;
+  color: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(88,166,255,.4));
+}
+
+.logo-text { font-size: 16px; font-weight: 700; letter-spacing: .5px; }
+
+/* ── Toggle Switch ───────────────────────────────────────── */
+
+.toggle { position: relative; display: inline-block; width: 44px; height: 24px; }
+.toggle input { opacity: 0; width: 0; height: 0; }
+
+.toggle-slider {
+  position: absolute; inset: 0;
+  background: var(--border); border-radius: 24px;
+  cursor: pointer; transition: background .25s;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute; width: 18px; height: 18px;
+  left: 3px; bottom: 3px;
+  background: var(--text-muted); border-radius: 50%;
+  transition: transform .25s, background .25s;
+}
+
+.toggle input:checked + .toggle-slider { background: var(--green); }
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px); background: #fff;
+}
+
+.toggle input:disabled + .toggle-slider {
+  opacity: .4; cursor: not-allowed;
+}
+
+/* ── Domain Badge ────────────────────────────────────────── */
+
+.domain-badge {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  padding: 4px 0;
+  margin-bottom: 4px;
+}
+
+.domain-badge.proxied {
+  color: var(--green);
+}
+
+/* ── Status ──────────────────────────────────────────────── */
+
+.status { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); }
+
+.status-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--text-muted); transition: background .3s;
+  opacity: .4;
+}
+
+.status.active .status-dot {
+  background: var(--green); opacity: 1;
+  box-shadow: 0 0 6px rgba(63,185,80,.5);
+}
+.status.active .status-text { color: var(--green); }
+
+/* ── Divider ─────────────────────────────────────────────── */
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+
+/* ── Sections ────────────────────────────────────────────── */
+
+.section { margin-bottom: 4px; }
+
+.section-label {
+  display: block; font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .8px;
+  color: var(--text-muted); margin-bottom: 8px;
+}
+
+/* ── Select ──────────────────────────────────────────────── */
+
+.select {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238b949e'%3E%3Cpath d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: border-color .2s;
+}
+
+.select:focus { border-color: var(--accent); }
+
+.select option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* ── Inputs ──────────────────────────────────────────────── */
+
+.input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.input:focus { border-color: var(--accent); }
+.input::placeholder { color: var(--text-muted); opacity: .6; }
+
+/* ── Add Profile Row ─────────────────────────────────────── */
+
+.add-row { display: flex; align-items: center; gap: 6px; }
+.name-input { flex: 1; }
+.port-input { width: 72px; text-align: center; }
+
+/* ── Buttons ─────────────────────────────────────────────── */
+
+.btn {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); color: var(--text);
+  cursor: pointer; font-size: 13px; padding: 6px 12px;
+  transition: background .15s, border-color .15s;
+}
+
+.btn:hover { background: var(--border); border-color: var(--text-muted); }
+
+.btn-accent {
+  background: var(--accent); border-color: var(--accent);
+  color: #fff; font-weight: 700; font-size: 16px; padding: 4px 12px;
+}
+.btn-accent:hover { opacity: .85; }
+
+/* ── Profile List ────────────────────────────────────────── */
+
+.profile-list {
+  list-style: none;
+  margin-top: 10px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.profile-list::-webkit-scrollbar { width: 4px; }
+.profile-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.profile-item {
+  display: flex;
+  align-items: center;
+  padding: 7px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 4px;
+  font-size: 12px;
+  transition: border-color .15s;
+}
+
+.profile-name {
+  flex: 1;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.profile-name.active { color: var(--green); }
+
+.profile-port {
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  color: var(--text-muted);
+  margin-right: 10px;
+}
+
+.profile-remove {
+  background: none; border: none;
+  color: var(--red); cursor: pointer;
+  font-size: 14px; padding: 0 2px;
+  opacity: .5; transition: opacity .15s;
+}
+
+.profile-remove:hover { opacity: 1; }
+
+/* ── Domain List ─────────────────────────────────────────── */
+
+.domain-list {
+  list-style: none;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.domain-list:empty::after {
+  content: 'No domains — toggle ON in any tab';
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: .6;
+  padding: 6px 0;
+}
+
+.domain-list::-webkit-scrollbar { width: 4px; }
+.domain-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.domain-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.domain-name {
+  flex: 1;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  color: var(--text-muted);
+}
+
+.domain-name.current {
+  color: var(--green);
+}
+
+.domain-remove {
+  background: none; border: none;
+  color: var(--red); cursor: pointer;
+  font-size: 14px; padding: 0 2px;
+  opacity: .5; transition: opacity .15s;
+}
+
+.domain-remove:hover { opacity: 1; }

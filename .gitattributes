@@ -1,0 +1,9 @@
+# Normalize line endings. Keep shell scripts LF so they run on the VPS.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.sh  text eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary

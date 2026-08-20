@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <button id="clearBtn" class="tool-btn" title="Clear">🗑 Clear</button>
+    <button id="exportBtn" class="tool-btn" title="Export JSON">⬇ Export</button>
+    <div class="toolbar-sep"></div>
+    <input type="text" id="filterInput" class="filter-input" placeholder="Filter by URL...">
+    <div class="toolbar-sep"></div>
+    <div class="stats">
+      <span class="stat" id="statCount">0 requests</span>
+      <span class="stat" id="statAvgVps">avg VPS: —</span>
+      <span class="stat" id="statAvgLocal">avg You→VPS: —</span>
+    </div>
+  </div>
+
+  <!-- Request Table -->
+  <div class="table-wrap">
+    <table class="req-table">
+      <thead>
+        <tr>
+          <th class="col-url">URL</th>
+          <th class="col-method">Method</th>
+          <th class="col-status">Status</th>
+          <th class="col-size">Size</th>
+          <th class="col-vps">VPS→Target</th>
+          <th class="col-local">You→VPS</th>
+          <th class="col-total">Total</th>
+          <th class="col-bar">Timing</th>
+        </tr>
+      </thead>
+      <tbody id="reqBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Detail Panel (shown on row click) -->
+  <div class="detail-panel hidden" id="detailPanel">
+    <div class="detail-header">
+      <span class="detail-title" id="detailUrl"></span>
+      <button class="detail-close" id="detailClose">✕</button>
+    </div>
+    <div class="detail-body" id="detailBody"></div>
+  </div>
+
+  <script src="panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">Nowser</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="proxyToggle">
+        <span class="toggle-slider"></span>
+      </label>
+    </header>
+
+    <div class="domain-badge" id="domainLabel">Loading...</div>
+
+    <div class="status" id="status">
+      <span class="status-dot"></span>
+      <span class="status-text">No domains routed</span>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Global Proxy -->
+    <section class="section" style="display: flex; justify-content: space-between; align-items: center;">
+      <label class="section-label" style="margin-bottom: 0;">Global Proxy Mode (All domains)</label>
+      <label class="toggle">
+        <input type="checkbox" id="globalToggle">
+        <span class="toggle-slider"></span>
+      </label>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Active VPS Profile -->
+    <section class="section">
+      <label class="section-label">Active VPS</label>
+      <select id="profileSelect" class="select">
+        <option value="">— No profiles —</option>
+      </select>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Proxied Domains -->
+    <section class="section">
+      <label class="section-label">Proxied Domains</label>
+      <ul id="domainList" class="domain-list"></ul>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Add Profile -->
+    <section class="section">
+      <label class="section-label">Add VPS Profile</label>
+      <div class="add-row">
+        <input type="text" id="profileName" class="input name-input" placeholder="Contabo">
+        <input type="number" id="profilePort" class="input port-input" placeholder="26652" value="26652">
+        <button id="addProfile" class="btn btn-accent" title="Add">+</button>
+      </div>
+    </section>
+
+    <!-- Profile List -->
+    <ul id="profileList" class="profile-list"></ul>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

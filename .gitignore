@@ -1,0 +1,24 @@
+# mitmproxy CA certificates — generated per-VPS by nowser.bat, never commit.
+# These are local trust artifacts specific to your own servers.
+certs/
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Node / editor
+node_modules/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Nowser runtime
+nowser.log
+
+# Local state
+_STATE.md
